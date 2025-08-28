@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "90875001267",
+    "project_id": "bitelogik",
+    "storage_bucket": "bitelogik.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:90875001267:android:4e779a280edd8a274df3c6",
+        "android_client_info": {
+          "package_name": "com.example.bitelogik"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "90875001267-6qe0it1fkiml2fj33c9kuecc3gbtt6su.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0F71PXoDLyslaUs9A3Dm8JyT70onPamk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "90875001267-6qe0it1fkiml2fj33c9kuecc3gbtt6su.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "90875001267-sfhq6dm3sskdaubmjhuj2buvcp9n60d8.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.bitelogik"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
