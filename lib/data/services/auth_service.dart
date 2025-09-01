@@ -1,6 +1,7 @@
 // lib/services/auth_service.dart
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 
@@ -22,24 +23,48 @@ class AuthService {
   }
 
   /// Initialize the plugin. Pass your Web OAuth Client ID as serverClientId.
+  // Future<void> initialize({
+  //   String? clientId,
+  //   String? serverClientId,
+  //   String? hostedDomain,
+  //   String? nonce,
+  // }) async {
+  //   await _google.initialize(
+  //     clientId: clientId,
+  //     serverClientId: serverClientId,
+  //     hostedDomain: hostedDomain,
+  //     nonce: nonce,
+  //   );
+  //
+  //   try {
+  //     await _google.attemptLightweightAuthentication();
+  //   } catch (_) {
+  //     // Not critical
+  //   }
+  // }
   Future<void> initialize({
-    String? clientId,
     String? serverClientId,
     String? hostedDomain,
     String? nonce,
+    String? clientId,
   }) async {
-    await _google.initialize(
-      clientId: clientId,
-      serverClientId: serverClientId,
-      hostedDomain: hostedDomain,
-      nonce: nonce,
-    );
-
-    try {
-      await _google.attemptLightweightAuthentication();
-    } catch (_) {
-      // Not critical
+    if (kIsWeb) {
+      // For web, do not provide serverClientId
+      await _google.initialize(
+        clientId: clientId,
+        hostedDomain: hostedDomain,
+        nonce: nonce,
+      );
+    } else {
+      // For Android/iOS, provide the serverClientId
+      await _google.initialize(
+        clientId: clientId,
+        serverClientId: serverClientId,
+        hostedDomain: hostedDomain,
+        nonce: nonce,
+      );
     }
+    await _google.attemptLightweightAuthentication();
   }
 
   /// Sign in with Google.
